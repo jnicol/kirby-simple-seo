@@ -1,6 +1,7 @@
 {
   "name": "jonathannicol/kirby-simple-seo",
   "description": "A simple SEO plugin for Kirby CMS",
+  "homepage": "https://github.com/jnicol/kirby-simple-seo",
   "license": "MIT",
   "type": "kirby-plugin",
   "version": "1.0.0",
