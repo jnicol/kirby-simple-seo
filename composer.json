@@ -1,0 +1,20 @@
+{
+  "name": "jonathannicol/kirby-simple-seo",
+  "description": "A simple SEO plugin for Kirby CMS",
+  "license": "MIT",
+  "type": "kirby-plugin",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Jonathan Nicol"
+    }
+  ],
+  "require": {
+    "getkirby/composer-installer": "^1.2"
+  },
+  "extra": {
+    "kirby": {
+      "compatible": "^5.0"
+    }
+  }
+}
