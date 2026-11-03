@@ -2,8 +2,8 @@
 return [
     'jonathannicol.seo.tab.label' => 'SEO',
 
-    'jonathannicol.seo.field.siteheadline.label' => 'Site meta data',
-    'jonathannicol.seo.field.sitefallbackheadline.label' => 'Fallback meta data',
+    'jonathannicol.seo.field.siteheadline.label' => 'Site metadata',
+    'jonathannicol.seo.field.sitefallbackheadline.label' => 'Fallback metadata',
     'jonathannicol.seo.field.sitedescription.label' => 'Site description',
     'jonathannicol.seo.field.sitedescription.help' => 'Used in the site\'s schema.org graph.',
 

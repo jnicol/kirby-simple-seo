@@ -4,7 +4,7 @@ A simple SEO plugin for Kirby CMS. Edit SEO meta fields and Open Graph data from
 
 ## Install
 
-Copy this folder to the `/site/plugins` directory
+Copy the contents of this folder to `/site/plugins/kirby-simple-seo`.
 
 ## Setup
 
@@ -20,9 +20,9 @@ tabs:
   seo: seo/tab/page
 ```
 
-The page tab includes fields for editing per-page meta, such as `metaTitle`, `metaDescription`, `ogImage` and robots directives.
+The page tab includes fields for editing per-page metadata, such as `metaTitle`, `metaDescription`, `ogImage` and robots directives.
 
-The site tab adds `metaDescription` and `ogImage` fields to your dashboard, which serve as a fallback if a page does not have any metadata defined.
+The site tab adds `siteDescription`, `metaTitle`and `ogImage` fields to your dashboard, which define site-wide metadata and/or serve as a fallback if a page does not have any metadata defined.
 
 ## Usage in template
 
@@ -70,5 +70,3 @@ return [
 ---
 
 Made by Jonathan Nicol and released under an MIT license.
-
-Inspired by other Kirby SEO plugins such as https://github.com/presprog/kirby-seo-plugin.
