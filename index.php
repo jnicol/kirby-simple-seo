@@ -39,7 +39,7 @@ Kirby::plugin(
             'robotsFollow' => true,
             'robotsArchive' => true,
             'robotsImageIndex' => true,
-            'sitemap' => false,
+            'sitemap' => true,
             'sitemapExclude' => ['error'],
             'social' => true,
             'schema' => true,
@@ -53,13 +53,13 @@ Kirby::plugin(
         ],
         // Set up snippet routes for Kirby to find the snippet files in this plugin
         'snippets' => [
-            'seo/head' => __DIR__ . '/snippets/head.php',
-            'seo/sitemap' => __DIR__ . '/snippets/sitemap.php',
+            'simple-seo/head' => __DIR__ . '/snippets/head.php',
+            'simple-seo/sitemap' => __DIR__ . '/snippets/sitemap.php',
         ],
         // Set up blueprint routes for Kirby to find the blueprint files in this plugin
         'blueprints' => [
-            'seo/tab/page' => __DIR__ . '/blueprints/tab-page.yml',
-            'seo/tab/site' => __DIR__ . '/blueprints/tab-site.yml',
+            'simple-seo/tab/page' => __DIR__ . '/blueprints/tab-page.yml',
+            'simple-seo/tab/site' => __DIR__ . '/blueprints/tab-site.yml',
         ],
         'routes' => function (Kirby $kirby) {
             // Routes that are always registered
@@ -74,7 +74,7 @@ Kirby::plugin(
                         $pages  = site()->pages()->index();
                         $ignore = option('jnicol.simple-seo.sitemapExclude', []);
 
-                        $content = snippet('seo/sitemap', compact('pages', 'ignore'), true);
+                        $content = snippet('simple-seo/sitemap', compact('pages', 'ignore'), true);
 
                         return new Response($content, 'application/xml');
                     }

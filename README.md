@@ -29,11 +29,11 @@ Include the SEO site tab in your `site.yml` and the SEO page tab in all your pag
 ```yaml
 # site.yml
 tabs:
-  seo: seo/tab/site
+  seo: simple-seo/tab/site
 
 # e.g. default.yml
 tabs:
-  seo: seo/tab/page
+  seo: simple-seo/tab/page
 ```
 
 The page tab includes fields for editing per-page metadata, such as `metaTitle`, `metaDescription`, `ogImage` and robots directives.
@@ -44,7 +44,7 @@ The site tab adds `siteDescription`, `metaTitle` and `ogImage` fields to your da
 
 ```php
 // in <head> of a page template
-<?php snippet('seo/head') ?>
+<?php snippet('simple-seo/head') ?>
 ```
 
 ## Options
