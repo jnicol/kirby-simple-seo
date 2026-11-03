@@ -1,6 +1,6 @@
 type: section
 icon: search
-label: jonathannicol.seo.tab.label
+label: jnicol.simple-seo.tab.label
 
 columns:
   settings:
@@ -10,27 +10,27 @@ columns:
         type: fields
         fields:
           siteHeadline:
-            label: jonathannicol.seo.field.siteHeadline.label
+            label: jnicol.simple-seo.field.siteHeadline.label
             type: headline
           siteDescription:
-            label: jonathannicol.seo.field.siteDescription.label
+            label: jnicol.simple-seo.field.siteDescription.label
             type: textarea
             buttons: false
-            help: jonathannicol.seo.field.siteDescription.help
+            help: jnicol.simple-seo.field.siteDescription.help
           siteFallbackHeadline:
-            label: jonathannicol.seo.field.siteFallbackHeadline.label
+            label: jnicol.simple-seo.field.siteFallbackHeadline.label
             type: headline
           metaInfo:
             label: false
             type: info
-            text: jonathannicol.seo.field.metaInfo.text
+            text: jnicol.simple-seo.field.metaInfo.text
           metaTitle:
-            label: jonathannicol.seo.field.metaTitle.label
+            label: jnicol.simple-seo.field.metaTitle.label
             type: text
-            help: jonathannicol.seo.field.metaTitle.help
+            help: jnicol.simple-seo.field.metaTitle.help
           ogImage:
-            label: jonathannicol.seo.field.ogImage.label
+            label: jnicol.simple-seo.field.ogImage.label
             type: files
             files: images
             multiple: false
-            help: jonathannicol.seo.field.ogImage.help
+            help: jnicol.simple-seo.field.ogImage.help

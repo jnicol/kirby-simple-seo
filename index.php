@@ -27,19 +27,24 @@ Kirby::plugin(
     name: 'jnicol/simple-seo',
     extends: [
         'options' => [
+            'autoImages' => [],
             'appendSiteTitle' => true,
+            'canonical' => true,
             'titleSeparator'  => '-',
-            'sitemapExclude' => ['error'],
-            'social' => true,
-            'schema' => true,
-            'schemaLocale' => '',
-            'schemaExtra' => [],
+            'title' => true,
+            'meta' => true,
             'robots' => true,
             'robotsIndex' => true,
             'robotsFollow' => true,
             'robotsArchive' => true,
             'robotsImageIndex' => true,
-            'autoImages' => [],
+            'sitemap' => false,
+            'sitemapExclude' => ['error'],
+            'social' => true,
+            'schema' => true,
+            'schemaLocale' => '',
+            'schemaExtra' => [],
+
         ],
         'pageMethods' => [
             'meta' => function () {
@@ -56,34 +61,36 @@ Kirby::plugin(
             'seo/tab/page' => __DIR__ . '/blueprints/tab-page.yml',
             'seo/tab/site' => __DIR__ . '/blueprints/tab-site.yml',
         ],
-        'routes' => [
-            [
-                'pattern' => 'sitemap.xml',
-                'action' => function () {
-                    // @see https://getkirby.com/docs/cookbook/navigation/sitemap
+        'routes' => function (Kirby $kirby) {
+            // Routes that are always registered
+            $routes = [];
 
-                    // fetch all pages
-                    $pages = site()->pages()->index();
+            // Sitemap routes are optional
+            if ($kirby->option('jnicol.simple-seo.sitemap', true) === true) {
+                $routes[] = [
+                    'pattern' => 'sitemap.xml',
+                    'action'  => function () {
+                        // @see https://getkirby.com/docs/cookbook/navigation/sitemap
+                        $pages  = site()->pages()->index();
+                        $ignore = option('jnicol.simple-seo.sitemapExclude', []);
 
-                    /*
-                    Fetch the pages to ignore from the plugin's config
-                    */
-                    $ignore = option('jonathannicol.simple-seo.sitemapExclude', []);
+                        $content = snippet('seo/sitemap', compact('pages', 'ignore'), true);
 
-                    $content = snippet('seo/sitemap', compact('pages', 'ignore'), true);
+                        return new Response($content, 'application/xml');
+                    }
+                ];
 
-                    // return response with correct header type
-                    return new Response($content, 'application/xml');
-                }
-            ],
-            [
-                'pattern' => 'sitemap',
-                'action'  => function () {
-                    // Alias /sitemap to /sitemap.xml
-                    return go('sitemap.xml', 301);
-                }
-            ]
-        ],
+                $routes[] = [
+                    'pattern' => 'sitemap',
+                    'action'  => function () {
+                        // Alias /sitemap to /sitemap.xml
+                        return go('sitemap.xml', 301);
+                    }
+                ];
+            }
+
+            return $routes;
+        },
         'translations' => [
             'en' => require __DIR__ . '/translations/en.php',
             'de' => require __DIR__ . '/translations/de.php'

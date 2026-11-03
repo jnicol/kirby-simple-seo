@@ -14,23 +14,29 @@ $og_image = $meta->ogImage();
 
 /* Page title */
 
-echo Html::tag('title', $meta_title) . PHP_EOL;
+if (option('jnicol.simple-seo.title')):
+    echo Html::tag('title', $meta_title) . PHP_EOL;
+endif;
 
 /* Meta tags */
 
-echo '<link rel="canonical" href="' . $meta_url . ' ">'  . PHP_EOL;
-
-if ($meta_description):
-    echo '<meta name="description" content="' . $meta->description() . '">' . PHP_EOL;
+if (option('jnicol.simple-seo.canonical')):
+    echo '<link rel="canonical" href="' . $meta_url . ' ">'  . PHP_EOL;
 endif;
 
-if (option('jonathannicol.simple-seo.robots')):
+if (option('jnicol.simple-seo.meta')):
+    if ($meta_description):
+        echo '<meta name="description" content="' . $meta->description() . '">' . PHP_EOL;
+    endif;
+endif;
+
+if (option('jnicol.simple-seo.robots')):
     echo '<meta name="robots" content="' . $meta_robots . '">' . PHP_EOL;
 endif;
 
 /* Open Graph */
 
-if (option('jonathannicol.simple-seo.social')):
+if (option('jnicol.simple-seo.social')):
     echo '<meta property="og:title" content="' . $meta_title . '">' . PHP_EOL;
     echo '<meta property="og:type" content="website">' . PHP_EOL;
     echo '<meta property="og:url" content="' . $meta_url . '">' . PHP_EOL;
@@ -52,7 +58,7 @@ if (option('jonathannicol.simple-seo.social')):
     }
 endif;
 
-if (option('jonathannicol.simple-seo.schema')):
+if (option('jnicol.simple-seo.schema')):
     if (($json = $meta->jsonld()) && empty($json) === false):
         echo '<script type="application/ld+json">' . PHP_EOL;
         echo json_encode($json, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | (option('debug') ? JSON_PRETTY_PRINT : 0)) . PHP_EOL;

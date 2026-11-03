@@ -45,7 +45,7 @@ class PageMeta
     public function title(): string
     {
         // 1. Fetch the separator from the plugin's config
-        $separator = option('jonathannicol.simple-seo.titleSeparator', '');
+        $separator = option('jnicol.simple-seo.titleSeparator', '');
 
         // metaTitle field from this page
         $metaTitle = $this->page->metaTitle();
@@ -58,7 +58,7 @@ class PageMeta
         // Fallback: default page title
         if ($metaTitle->isEmpty()) {
             $metaTitle = $this->page->title();
-            if (option('jonathannicol.simple-seo.appendSiteTitle')) {
+            if (option('jnicol.simple-seo.appendSiteTitle')) {
                 $metaTitle .= ' ' . $separator . ' ' . $this->site->title();
             }
         }
@@ -122,7 +122,7 @@ class PageMeta
 
         // Fallback: ogImage from plugin's autoImages config
         if (!$image) {
-            $autoImages = option('jonathannicol.simple-seo.autoImages');
+            $autoImages = option('jnicol.simple-seo.autoImages');
             foreach ($autoImages as $field) {
                 if ($this->page->content()->get($field)->isNotEmpty()) {
                     $image = $this->page->content()->get($field)->first()->toFile();
@@ -160,10 +160,10 @@ class PageMeta
         // Defaults from plugin's config
         // true = allow
         // false = disallow
-        $index = option('jonathannicol.simple-seo.robotsIndex');
-        $follow = option('jonathannicol.simple-seo.robotsFollow');
-        $archive = option('jonathannicol.simple-seo.robotsArchive');
-        $imageIndex = option('jonathannicol.simple-seo.robotsImageIndex');
+        $index = option('jnicol.simple-seo.robotsIndex');
+        $follow = option('jnicol.simple-seo.robotsFollow');
+        $archive = option('jnicol.simple-seo.robotsArchive');
+        $imageIndex = option('jnicol.simple-seo.robotsImageIndex');
 
         // Always disable indexing for draft and error pages
         if ($this->page->isDraft() || $this->page->isErrorPage()) {
@@ -207,9 +207,9 @@ class PageMeta
     public function robotDefaultLabel(string $option): string
     {
         // Display the appropriate label for the plugin config value: "Allow" or "Disallow"
-        $value =  option('jonathannicol.simple-seo.' . $option) ? t('jonathannicol.seo.common.allow') : t('jonathannicol.seo.common.disallow');
+        $value =  option('jnicol.simple-seo.' . $option) ? t('jnicol.simple-seocommon.allow') : t('jnicol.simple-seocommon.disallow');
 
-        return t('jonathannicol.seo.common.default') . ' ' . $value;
+        return t('jnicol.simple-seocommon.default') . ' ' . $value;
     }
 
     /**
@@ -250,14 +250,13 @@ class PageMeta
         $graph[] = $webpage;
 
         // Locale 
-        if ($locale = option('jonathannicol.simple-seo.schemaLocale')) {
+        if ($locale = option('jnicol.simple-seo.schemaLocale')) {
             $website['inLanguage'] = $locale;
             $webpage['inLanguage'] = $locale;
         }
 
         // Merge with extra schema data defined in the plugin's config
-        var_dump($graph);
-        $graph = array_merge($graph, option('jonathannicol.simple-seo.schemaExtra'));
+        $graph = array_merge($graph, option('jnicol.simple-seo.schemaExtra'));
 
         $json = [
             '@context' => 'https://schema.org',

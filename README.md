@@ -5,9 +5,9 @@ A simple SEO plugin for Kirby CMS. Edit SEO meta fields and Open Graph data from
 ## Features
 
 - Set per-page meta title, description and robot directives
-- Automatic schema.org graph generation
-- Additional schema objects can be added via configuration
-- Automatic sitemap generation
+- Generate Open Graph tags for social media sharing
+- Generate Schema.org (JSON-LD) structured data
+- Generate an XML sitemap
 - All features can be enabled/disabled via configuration
 - Blueprints can be translated. English and German translations are included.
 
@@ -58,7 +58,7 @@ Schema.org (JSON-LD) structured data is automatically added to each page, and in
 
 ```php
 return [
-  'jonathannicol.simple-seo' => [
+  'jnicol.simple-seo' => [
     'schemaExtra' => [
       [
         '@type' => 'Organization',
@@ -79,7 +79,7 @@ Options can be set in `/site/config/config.php`:
 
 ```php
 return [
-  'jonathannicol.simple-seo' => [
+  'jnicol.simple-seo' => [
     'titleSeparator'  => '|',
     'autoImages' => ['cover_image'],
   ]
@@ -90,18 +90,22 @@ return [
 | Property | Type | Default | Description |
 | --- | ---| --- | --- |
 | appendSiteTitle | `bool` | `true` | Append site title should be appended to auto-generated page titles. |
+| autoImages |`array` | `[]` | Array of fields to use as the Open Graph image if one was not manually defined. The first matching field will be used. |
+| canonical |`bool`| `true` | Generate canonical URL tag. |
+| meta |`bool`| `true` | Generate general meta tags e.g meta description. |
+| title |`bool`| `true` | Generate title tag. |
 | titleSeparator |`string`| `'-'` | A visual separator between the page and site title. |
-| sitemapExclude |`array`| `['error']` |An array of page slugs to exclude from the sitemap. |
-| social |`bool`| `true` | Generate Open Graph meta tags. |
-| schema |`bool`| `true` | Generate JSON-LD schema data. |
-| schemaLocale |`string`| `''` | The langage your wesite is written in. Use one of the language codes from the IETF BCP 47 standard. |
-| schemaExtra |`array` | `[]` | Additional data to include in the schema @graph object, defined as a PHP array. |
 | robots |`bool`| `true` | Generate robots meta tag. |
 | robotsIndex |`bool` | `true` | Allows crawlers to index pages. Can be disallowed per-page. |
 | robotsFollow |`bool` | `true` | Allows crawlers to follow links on pages. Can be disallowed per-page. |
 | robotsArchive |`bool` | `true` | Allows crawlers to serve cached page versions. Can be disallowed per-page. |
 | robotsImageIndex |`bool` | `true` | Allows crawlers to include imagesin search results. Can be disallowed per-page. |
-| autoImages |`array` | `[]` | Array of fields to use as the Open Graph image if one was not manually defined. The first matching field will be used. |
+| sitemap |`bool`| `true` | Generate XML sitemap. |
+| sitemapExclude |`array`| `['error']` |An array of page slugs to exclude from the sitemap. |
+| social |`bool`| `true` | Generate Open Graph meta tags. |
+| schema |`bool`| `true` | Generate JSON-LD schema data. |
+| schemaLocale |`string`| `''` | The langage your wesite is written in. Use one of the language codes from the IETF BCP 47 standard. |
+| schemaExtra |`array` | `[]` | Additional data to include in the schema @graph object, defined as a PHP array. |
 
 ---
 
