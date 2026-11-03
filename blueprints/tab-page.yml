@@ -1,0 +1,66 @@
+type: section
+icon: search
+label: jonathannicol.seo.tab.label
+
+columns:
+  settings:
+    width: 2/3
+    sections:
+      seoFields:
+        type: fields
+        fields:
+          metaTitle:
+            label: jonathannicol.seo.field.metatitle.label
+            type: text
+            help: jonathannicol.seo.field.metatitle.help
+          metaDescription:
+            label: jonathannicol.seo.field.metadescription.label
+            type: textarea
+            buttons: false
+            help: jonathannicol.seo.field.metadescription.help
+          ogImage:
+            label: jonathannicol.seo.field.ogimage.label
+            type: files
+            files: images
+            multiple: false
+            help: jonathannicol.seo.field.ogimage.help
+          robotsHeadline:
+            label: jonathannicol.seo.field.robotsHeadline.label
+            type: headline
+            numbered: false
+          robotsIndex:
+            type: toggle
+            text:
+              - "{{page.meta.robotDefaultLabel('robotsIndex')}}"
+              - jonathannicol.seo.common.disallow
+            default: false
+            label: jonathannicol.seo.field.robotsIndex.label
+            help: jonathannicol.seo.field.robotsIndex.help
+            width: 1/2
+          robotsFollow:
+            type: toggle
+            text:
+              - "{{page.meta.robotDefaultLabel('robotsFollow')}}"
+              - jonathannicol.seo.common.disallow
+            default: false
+            label: jonathannicol.seo.field.robotsFollow.label
+            help: jonathannicol.seo.field.robotsFollow.help
+            width: 1/2
+          robotsArchive:
+            type: toggle
+            text:
+              - "{{page.meta.robotDefaultLabel('robotsArchive')}}"
+              - jonathannicol.seo.common.disallow
+            default: false
+            label: jonathannicol.seo.field.robotsArchive.label
+            help: jonathannicol.seo.field.robotsArchive.help
+            width: 1/2
+          robotsImages:
+            type: toggle
+            text:
+              - "{{page.meta.robotDefaultLabel('robotsImageIndex')}}"
+              - jonathannicol.seo.common.disallow
+            default: false
+            label: jonathannicol.seo.field.robotsImages.label
+            help: jonathannicol.seo.field.robotsImages.help
+            width: 1/2

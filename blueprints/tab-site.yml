@@ -1,0 +1,36 @@
+type: section
+icon: search
+label: jonathannicol.seo.tab.label
+
+columns:
+  settings:
+    width: 2/3
+    sections:
+      seoFields:
+        type: fields
+        fields:
+          siteHeadline:
+            label: jonathannicol.seo.field.siteheadline.label
+            type: headline
+          siteDescription:
+            label: jonathannicol.seo.field.sitedescription.label
+            type: textarea
+            buttons: false
+            help: jonathannicol.seo.field.sitedescription.help
+          siteFallbackHeadline:
+            label: jonathannicol.seo.field.sitefallbackheadline.label
+            type: headline
+          metaInfo:
+            label: false
+            type: info
+            text: "Define site-wide fallbacks to use when a page doesn't have meta-data itself"
+          metaTitle:
+            label: jonathannicol.seo.field.metatitle.label
+            type: text
+            help: jonathannicol.seo.field.metatitle.help
+          ogImage:
+            label: jonathannicol.seo.field.ogimage.label
+            type: files
+            files: images
+            multiple: false
+            help: jonathannicol.seo.field.ogimage.help
