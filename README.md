@@ -46,33 +46,6 @@ The site tab adds `siteDescription`, `metaTitle` and `ogImage` fields to your da
 <?php snippet('seo/head') ?>
 ```
 
-## Sitemap
-
-A `sitemap.xml` file is automatically generated at the site's root.
-
-Pages can be excluded from the sitemap with the sitemapExclude config setting.
-
-## Schema
-
-Schema.org (JSON-LD) structured data is automatically added to each page, and includes `WebSite` and `WebPage` schemas. You can add your own schemas using the schemaExtra config option. Here is an example of adding an `Organization` schema:
-
-```php
-return [
-  'jnicol.simple-seo' => [
-    'schemaExtra' => [
-      [
-        '@type' => 'Organization',
-        'url' => 'https://www.example.com',
-        'sameAs' => ['https://example.net/profile/example1234', 'https://example.org/example1234'],
-        'logo' => 'https://www.example.com/images/logo.png',
-        'name' => 'Example Corporation',
-        'description' => 'The example corporation is well-known for producing high-quality widgets',
-      ]
-    ]
-  ]
-]
-```
-
 ## Options
 
 Options can be set in `/site/config/config.php`:
@@ -99,13 +72,40 @@ return [
 | robotsIndex |`bool` | `true` | Allows crawlers to index pages. Can be disallowed per-page. |
 | robotsFollow |`bool` | `true` | Allows crawlers to follow links on pages. Can be disallowed per-page. |
 | robotsArchive |`bool` | `true` | Allows crawlers to serve cached page versions. Can be disallowed per-page. |
-| robotsImageIndex |`bool` | `true` | Allows crawlers to include imagesin search results. Can be disallowed per-page. |
+| robotsImageIndex |`bool` | `true` | Allows crawlers to include images in search results. Can be disallowed per-page. |
 | sitemap |`bool`| `true` | Generate XML sitemap. |
-| sitemapExclude |`array`| `['error']` |An array of page slugs to exclude from the sitemap. |
+| sitemapExclude |`array`| `['error']` | An array of page slugs to exclude from the sitemap. |
 | social |`bool`| `true` | Generate Open Graph meta tags. |
 | schema |`bool`| `true` | Generate JSON-LD schema data. |
 | schemaLocale |`string`| `''` | The langage your wesite is written in. Use one of the language codes from the IETF BCP 47 standard. |
 | schemaExtra |`array` | `[]` | Additional data to include in the schema @graph object, defined as a PHP array. |
+
+## Sitemap
+
+A `sitemap.xml` file is automatically generated at the site's root.
+
+Pages can be excluded from the sitemap with the `sitemapExclude` config setting.
+
+## Schema
+
+Schema.org (JSON-LD) structured data is automatically added to each page, and includes `WebSite` and `WebPage` schemas. You can add your own schemas using the `schemaExtra` config option. Here is an example of adding an `Organization` schema:
+
+```php
+return [
+  'jnicol.simple-seo' => [
+    'schemaExtra' => [
+      [
+        '@type' => 'Organization',
+        'url' => 'https://www.example.com',
+        'sameAs' => ['https://example.net/profile/example1234', 'https://example.org/example1234'],
+        'logo' => 'https://www.example.com/images/logo.png',
+        'name' => 'Example Corporation',
+        'description' => 'The example corporation is well-known for producing high-quality widgets',
+      ]
+    ]
+  ]
+]
+```
 
 ---
 
