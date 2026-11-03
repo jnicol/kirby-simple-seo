@@ -24,7 +24,7 @@ F::loadClasses([
 /* Plugin definition */
 
 Kirby::plugin(
-    name: 'jonathannicol/simple-seo',
+    name: 'jnicol/simple-seo',
     extends: [
         'options' => [
             'appendSiteTitle' => true,

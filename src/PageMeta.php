@@ -256,6 +256,7 @@ class PageMeta
         }
 
         // Merge with extra schema data defined in the plugin's config
+        var_dump($graph);
         $graph = array_merge($graph, option('jonathannicol.simple-seo.schemaExtra'));
 
         $json = [
