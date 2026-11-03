@@ -62,10 +62,10 @@ return [
 <!-- prettier-ignore -->
 | Property | Type | Default | Description |
 | --- | ---| --- | --- |
-| appendSiteTitle | `bool` | `true` | Append site title should be appended to auto-generated page titles. |
+| appendSiteTitle | `bool` | `true` | Append the site title to auto-generated page titles. |
 | autoImages |`array` | `[]` | Array of fields to use as the Open Graph image if one was not manually defined. The first matching field will be used. |
 | canonical |`bool`| `true` | Generate canonical URL tag. |
-| meta |`bool`| `true` | Generate general meta tags e.g meta description. |
+| meta |`bool`| `true` | Generate general meta tags. |
 | title |`bool`| `true` | Generate title tag. |
 | titleSeparator |`string`| `'-'` | A visual separator between the page and site title. |
 | robots |`bool`| `true` | Generate robots meta tag. |
@@ -77,8 +77,8 @@ return [
 | sitemapExclude |`array`| `['error']` | An array of page slugs to exclude from the sitemap. |
 | social |`bool`| `true` | Generate Open Graph meta tags. |
 | schema |`bool`| `true` | Generate JSON-LD schema data. |
-| schemaLocale |`string`| `''` | The langage your wesite is written in. Use one of the language codes from the IETF BCP 47 standard. |
-| schemaExtra |`array` | `[]` | Additional data to include in the schema @graph object, defined as a PHP array. |
+| schemaLocale |`string`| `''` | The langage your website is written in. Use one of the language codes from the IETF BCP 47 standard. |
+| schemaExtra |`array` | `[]` | Additional data to include in the schema.org @graph object, defined as a PHP array. |
 
 ## Sitemap
 
