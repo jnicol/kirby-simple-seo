@@ -85,7 +85,8 @@ Kirby::plugin(
             ]
         ],
         'translations' => [
-            'en' => require __DIR__ . '/translations/en.php'
+            'en' => require __DIR__ . '/translations/en.php',
+            'de' => require __DIR__ . '/translations/de.php'
         ],
 
     ]

@@ -10,20 +10,20 @@ columns:
         type: fields
         fields:
           metaTitle:
-            label: jonathannicol.seo.field.metatitle.label
+            label: jonathannicol.seo.field.metaTitle.label
             type: text
-            help: jonathannicol.seo.field.metatitle.help
+            help: jonathannicol.seo.field.metaTitle.help
           metaDescription:
-            label: jonathannicol.seo.field.metadescription.label
+            label: jonathannicol.seo.field.metaDescription.label
             type: textarea
             buttons: false
-            help: jonathannicol.seo.field.metadescription.help
+            help: jonathannicol.seo.field.metaDescription.help
           ogImage:
-            label: jonathannicol.seo.field.ogimage.label
+            label: jonathannicol.seo.field.ogImage.label
             type: files
             files: images
             multiple: false
-            help: jonathannicol.seo.field.ogimage.help
+            help: jonathannicol.seo.field.ogImage.help
           robotsHeadline:
             label: jonathannicol.seo.field.robotsHeadline.label
             type: headline

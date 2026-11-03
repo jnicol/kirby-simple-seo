@@ -2,17 +2,18 @@
 return [
     'jonathannicol.seo.tab.label' => 'SEO',
 
-    'jonathannicol.seo.field.siteheadline.label' => 'Site metadata',
-    'jonathannicol.seo.field.sitefallbackheadline.label' => 'Fallback metadata',
-    'jonathannicol.seo.field.sitedescription.label' => 'Site description',
-    'jonathannicol.seo.field.sitedescription.help' => 'Used in the site\'s schema.org graph.',
+    'jonathannicol.seo.field.metaInfo.text' => 'Define site-wide fallbacks to use when a page doesn\'t have meta-data itself',
+    'jonathannicol.seo.field.siteHeadline.label' => 'Site metadata',
+    'jonathannicol.seo.field.siteFallbackHeadline.label' => 'Fallback metadata',
+    'jonathannicol.seo.field.siteDescription.label' => 'Site description',
+    'jonathannicol.seo.field.siteDescription.help' => 'Used in the site\'s schema.org graph.',
 
-    'jonathannicol.seo.field.metatitle.label' => 'Meta title',
-    'jonathannicol.seo.field.metatitle.help' => 'Valid placeholders: \{\{page-title}}, \{\{site-title}}, \{\{sep}}',
-    'jonathannicol.seo.field.metadescription.label' => 'Meta description',
-    'jonathannicol.seo.field.metadescription.help' => 'A short summary of the page content. Max 160 characters.',
-    'jonathannicol.seo.field.ogimage.label' => 'Open Graph image',
-    'jonathannicol.seo.field.ogimage.help' => 'Preview image for social media platforms. Recommended size: 1200x630 px.',
+    'jonathannicol.seo.field.metaTitle.label' => 'Meta title',
+    'jonathannicol.seo.field.metaTitle.help' => 'Valid placeholders: \{\{page-title}} \{\{site-title}} \{\{sep}}',
+    'jonathannicol.seo.field.metaDescription.label' => 'Meta description',
+    'jonathannicol.seo.field.metaDescription.help' => 'A short summary of the page content. Max 160 characters.',
+    'jonathannicol.seo.field.ogImage.label' => 'Open Graph image',
+    'jonathannicol.seo.field.ogImage.help' => 'Preview image for social media platforms. Recommended size: 1200x630 px.',
 
     'jonathannicol.seo.field.robotsHeadline.label' => 'Robots',
     'jonathannicol.seo.field.robotsIndex.label' => 'Indexing',
