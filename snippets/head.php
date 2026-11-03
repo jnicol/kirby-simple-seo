@@ -11,6 +11,7 @@ $meta_url = $page->url();
 $meta_site_name = $page->site()->title();
 $meta_robots = $meta->robots();
 $og_image = $meta->ogImage();
+$locale = $meta->locale();
 
 /* Page title */
 
@@ -45,7 +46,7 @@ if (option('jnicol.simple-seo.social')):
         echo '<meta property="og:description" content="' . $meta_description . '">' . PHP_EOL;
     endif;
 
-    echo '<meta property="og:locale" content="en_US">' . PHP_EOL;
+    echo '<meta property="og:locale" content="' . $locale . '">' . PHP_EOL;
     echo '<meta property="og:site_name" content="' . $meta_site_name . '">' . PHP_EOL;
 
     if ($og_image) {

@@ -231,8 +231,6 @@ class PageMeta
             'description' => $this->site->siteDescription()->toString(),
         ];
 
-        $graph[] = $website;
-
         // WebPage
 
         $webpage = [
@@ -247,13 +245,14 @@ class PageMeta
             ]
         ];
 
-        $graph[] = $webpage;
-
         // Locale 
-        if ($locale = option('jnicol.simple-seo.schemaLocale')) {
+        if ($locale = $this->locale()) {
             $website['inLanguage'] = $locale;
             $webpage['inLanguage'] = $locale;
         }
+
+        $graph[] = $website;
+        $graph[] = $webpage;
 
         // Merge with extra schema data defined in the plugin's config
         $graph = array_merge($graph, option('jnicol.simple-seo.schemaExtra'));
@@ -264,5 +263,23 @@ class PageMeta
         ];
 
         return $json;
+    }
+
+    /**
+     * Get the current locale
+     */
+    public function locale(): ?string
+    {
+        // Locale defined in the plugin's config
+        if ($locale = option('jnicol.simple-seo.locale')) {
+            return $locale;
+        }
+
+        // Fallback: Language defined for a Kirby multi-language setup
+        if ($language = $this->site->language()) {
+            return $language->code();
+        }
+
+        return null;
     }
 }

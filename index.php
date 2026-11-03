@@ -32,6 +32,7 @@ Kirby::plugin(
             'canonical' => true,
             'titleSeparator'  => '-',
             'title' => true,
+            'locale' => '',
             'meta' => true,
             'robots' => true,
             'robotsIndex' => true,
@@ -42,7 +43,6 @@ Kirby::plugin(
             'sitemapExclude' => ['error'],
             'social' => true,
             'schema' => true,
-            'schemaLocale' => '',
             'schemaExtra' => [],
 
         ],
