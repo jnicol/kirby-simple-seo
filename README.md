@@ -1,6 +1,6 @@
 # Simple SEO Plugin for Kirby CMS
 
-A simple SEO plugin for Kirby CMS. Edit SEO meta fields and Open Graph data from the panel on a per page basis, with a site-wide fallback.
+A simple SEO plugin for Kirby CMS. Edit SEO meta fields and Open Graph data from the panel on a per page basis, with a site-wide fallback and sensible defaults.
 
 ## Features
 
