@@ -1,6 +1,6 @@
 # Simple SEO Plugin for Kirby CMS
 
-A simple SEO plugin for Kirby CMS. Edit SEO meta fields and Open Graph data from the panel on a per page basis, with a site-wide fallback and sensible defaults.
+A simple SEO plugin for Kirby CMS. Edit SEO meta fields and Open Graph data from the panel on a per page basis, with site-wide fallbacks and sensible defaults.
 
 ## Features
 
@@ -89,7 +89,7 @@ A `sitemap.xml` file is automatically generated at the site's root.
 
 Pages can be excluded from the sitemap with the `sitemapExclude` config setting.
 
-## Schema
+## Schemas
 
 Schema.org (JSON-LD) structured data is automatically added to each page, and includes `WebSite` and `WebPage` schemas. You can add your own schemas using the `schemaExtra` config option. Here is an example of adding an `Organization` schema:
 
