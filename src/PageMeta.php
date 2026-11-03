@@ -12,7 +12,7 @@ class PageMeta
 {
 
     /**
-     * The site of the page
+     * References to Kirby site and current page
      */
     private Site $site;
     private Page $page;
@@ -37,7 +37,7 @@ class PageMeta
      * Hierarchy:
      * 
      * 1. Page metaTitle field
-     * 2. Site fallabck metaTitle field
+     * 2. Site fallback metaTitle field
      * 3. Auto generated
      * 
      * @return string The page title
@@ -64,7 +64,7 @@ class PageMeta
         }
 
 
-        // Repalace placeholders in the metaTitle
+        // Replace placeholders in the metaTitle
         $metaTitle = str_replace('{{page-title}}', $this->page->title(), $metaTitle);
         $metaTitle = str_replace('{{sep}}', $separator, $metaTitle);
         $metaTitle = str_replace('{{site-title}}', $this->site->title(), $metaTitle);
@@ -74,6 +74,11 @@ class PageMeta
 
     /**
      * Get meta description 
+     * 
+     * Hierarchy:
+     * 
+     * 1. Page metaDescription field
+     * 2. Page text field
      * 
      * @return string The meta description
      */
@@ -98,28 +103,36 @@ class PageMeta
     /**
      * Get open graph image
      * 
+     * Hierachy:
+     * 
+     * 1. Page ogImage field
+     * 2. Image field from plugin's autoImages config
+     * 3. Site ogImage field
+     * 
      * @return array Image url, width, height and alt
      */
-    function ogImage(): ?array
+    public function ogImage(): ?array
     {
         $image = null;
 
         // ogImage field from this page
-        if ($this->site->ogImage()->isNotEmpty()) {
-            $image = $this->site->ogImage()->first()->toFile();
+        if ($this->page->ogImage()->isNotEmpty()) {
+            $image = $this->page->ogImage()->first()->toFile();
         }
 
-        // ogImage from plugin's autoImages config
-        $autoImages = option('jonathannicol.simple-seo.autoImages');
-        foreach ($autoImages as $field) {
-            if ($this->page->content()->get($field)->isNotEmpty()) {
-                $image = $this->page->content()->get($field)->first()->toFile();
+        // Fallback: ogImage from plugin's autoImages config
+        if (!$image) {
+            $autoImages = option('jonathannicol.simple-seo.autoImages');
+            foreach ($autoImages as $field) {
+                if ($this->page->content()->get($field)->isNotEmpty()) {
+                    $image = $this->page->content()->get($field)->first()->toFile();
+                }
             }
         }
 
-        // Fallback ogImage field from the site
-        if (!$image && $this->page->ogImage()->isNotEmpty()) {
-            $image = $this->page->ogImage()->first()->toFile();
+        // Fallback: ogImage field from the site
+        if (!$image && $this->site->ogImage()->isNotEmpty()) {
+            $image = $this->site->ogImage()->first()->toFile();
         }
 
         // Bail if we couldn't find an image
@@ -144,10 +157,9 @@ class PageMeta
      */
     public function robots(): string
     {
+        // Defaults from plugin's config
         // true = allow
         // false = disallow
-
-        // Defaults from plugin's config
         $index = option('jonathannicol.simple-seo.robotsIndex');
         $follow = option('jonathannicol.simple-seo.robotsFollow');
         $archive = option('jonathannicol.simple-seo.robotsArchive');
@@ -158,7 +170,7 @@ class PageMeta
             $index = false;
         }
 
-        // Override: from page. Toogle field on = disallow
+        // Override: from page. Toggle field on = disallow
         if ($this->page->robotsIndex()->toBool()) {
             $index = false;
         }
@@ -185,7 +197,7 @@ class PageMeta
     /**
      * Generate default field label for robot toggle fields
      * 
-     * Makes it clear what that default config value is when the toggle is
+     * Makes it clear what the default config value is when the toggle is
      * in the "off" state e.g. "Default: Allow"
      * 
      * @see blueprints/tab-page.yml

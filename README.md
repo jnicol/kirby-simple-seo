@@ -2,6 +2,13 @@
 
 A simple SEO plugin for Kirby CMS. Edit SEO meta fields and Open Graph data from the panel on a per page basis, with a site-wide fallback.
 
+## Features
+
+- Set per-page meta title, description and robot directives
+- Automatic schema.org graph generation
+- Addional schema objects can be added via configuration
+- Automatic sitemap generation
+
 ## Install
 
 Copy the contents of this folder to `/site/plugins/kirby-simple-seo`.
@@ -22,7 +29,7 @@ tabs:
 
 The page tab includes fields for editing per-page metadata, such as `metaTitle`, `metaDescription`, `ogImage` and robots directives.
 
-The site tab adds `siteDescription`, `metaTitle`and `ogImage` fields to your dashboard, which define site-wide metadata and/or serve as a fallback if a page does not have any metadata defined.
+The site tab adds `siteDescription`, `metaTitle` and `ogImage` fields to your dashboard, which define site-wide metadata and/or serve as a fallback if a page does not have any metadata defined.
 
 ## Usage in template
 
@@ -35,7 +42,11 @@ The site tab adds `siteDescription`, `metaTitle`and `ogImage` fields to your das
 
 A `sitemap.xml` file is automatically generated at the site's root.
 
-Pages can be exluded from the sitemap with the sitemapExclude config setting (see below).
+Pages can be exluded from the sitemap with the sitemapExclude config setting.
+
+## Schema
+
+Schema.org (JSON-LD) structured data is automatically added to each page, and includes `WebSite` and `WebPage` schemas. You can add you own schemas using the schemaExtra config option.
 
 ## Options
 
